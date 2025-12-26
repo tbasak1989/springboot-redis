@@ -29,7 +29,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    @Cacheable(value = "product", key = "#id")
+    @Cacheable(value = "product", key ="'product-service:product:' + #id")
     public ProductResponse getProductById(Long id) {
         Product product = productRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Product not found with ID " + id));
@@ -46,13 +46,13 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    @CachePut(value = "product", key = "#product.id")
+    @CachePut(value = "product", key = "'product-service:product:' + #id")
     public ProductResponse updateProduct(Long id, ProductRequest request) {
         Product product = productRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Product not found with ID " + id));
 
         product.setName(request.getName());
-        //product.setDescription(request.getDescription());
+        product.setDescription(request.getDescription());
         product.setPrice(request.getPrice());
         product.setQuantity(request.getQuantity());
 
@@ -60,11 +60,30 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    @CacheEvict(value = "product", key = "#id")
+    @CacheEvict(value = "product", key ="'product-service:product:' + #id")
     public void deleteProduct(Long id) {
         Product product = productRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Product not found with ID " + id));
         productRepository.delete(product);
+    }
+
+
+
+    @Override
+    public ProductResponse patch(Long id, ProductPatchRequest request) {
+        Product product = productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Product not found"));
+
+        if (request.getPrice() != null) {
+            product.setPrice(request.getPrice());
+        }
+        if (request.getQuantity() != null) {
+            product.setQuantity(request.getQuantity());
+        }
+        if (request.getDescription() != null) {
+            product.setDescription(request.getDescription());
+        }
+        return mapToResponse(productRepository.save(product));
     }
 
     // === Mapping helpers ===
@@ -72,7 +91,7 @@ public class ProductServiceImpl implements ProductService {
     private Product mapToEntity(ProductRequest request) {
         Product product = new Product();
         product.setName(request.getName());
-        //product.setDescription(request.getDescription());
+        product.setDescription(request.getDescription());
         product.setPrice(request.getPrice());
         product.setQuantity(request.getQuantity());
         return product;
@@ -82,7 +101,7 @@ public class ProductServiceImpl implements ProductService {
         ProductResponse response = new ProductResponse();
         response.setId(product.getId());
         response.setName(product.getName());
-        //response.setDescription(product.getDescription());
+        response.setDescription(product.getDescription());
         response.setPrice(product.getPrice());
         response.setQuantity(product.getQuantity());
         return response;

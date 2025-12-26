@@ -2,6 +2,7 @@ package com.tancom.service;
 
 import com.tancom.dto.request.ProductRequest;
 import com.tancom.dto.response.ProductResponse;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
@@ -16,4 +17,6 @@ public interface ProductService {
     ProductResponse updateProduct(Long id, ProductRequest request);
 
     void deleteProduct(Long id);
+
+    ProductResponse patch(Long id, ProductPatchRequest request);
 }

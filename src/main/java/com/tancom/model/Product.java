@@ -24,6 +24,10 @@ public class Product {
 
     @Column(nullable = false)
     private int quantity;
+
+    @Column(nullable = false)
+    private String description;
+
 /*
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;

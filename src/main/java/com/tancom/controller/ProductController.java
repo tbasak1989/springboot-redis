@@ -3,7 +3,9 @@ package com.tancom.controller;
 
 import com.tancom.dto.request.ProductRequest;
 import com.tancom.dto.response.ProductResponse;
+import com.tancom.service.ProductPatchRequest;
 import com.tancom.service.ProductService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -45,6 +47,14 @@ public class ProductController {
             @RequestBody ProductRequest request
     ) {
         return ResponseEntity.ok(productService.updateProduct(id, request));
+    }
+
+    @PatchMapping("/products/{id}")
+    public ResponseEntity<ProductResponse> patchProduct(
+            @PathVariable Long id,
+            @RequestBody @Valid ProductPatchRequest request) {
+
+        return ResponseEntity.ok(productService.patch(id, request));
     }
 
     // DELETE

@@ -37,7 +37,9 @@ jenkins/jenkins:lts                               -Official Jenkins image Long-T
 -Credentials(NONE):Add GitHub token if repo is private
 -Branch: master or any branch you want to deploy
 -Script Path: Jenkins
--Save and 'Build Now'
+-Save and click 'Build Now' after the below changes are done
+
+Update the code to add the 'Jenkins' file that the pipeline will refer to run the pipeline
 
 This will pull the latest code from github and run the pipeline using the Jenkins file
 

@@ -2,8 +2,8 @@ pipeline {
   agent any
 
   environment {
-    IMAGE_NAME = 'tanmoyb89/springboot-redis'
-    IMAGE_TAG  = 'latest'
+    IMAGE_NAME = 'tanmoyb89/microservices_101'
+    IMAGE_TAG = '1.0.${BUILD_NUMBER}'
   }
 
   stages {

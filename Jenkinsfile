@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   environment {
-    IMAGE_NAME = 'your-dockerhub-username/springboot-redis'
+    IMAGE_NAME = 'tanmoyb89/springboot-redis'
     IMAGE_TAG  = 'latest'
   }
 

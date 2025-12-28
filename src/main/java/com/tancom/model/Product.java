@@ -1,3 +1,4 @@
+/*
 package com.tancom.model;
 
 import jakarta.persistence.*;
@@ -24,10 +25,13 @@ public class Product {
 
     @Column(nullable = false)
     private int quantity;
+*/
 /*
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
 
     @Column(name = "updated_at")
-    private LocalDateTime updatedAt;*/
+    private LocalDateTime updatedAt;*//*
+
 }
+*/

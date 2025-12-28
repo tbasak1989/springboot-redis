@@ -1,3 +1,4 @@
+/*
 package com.tancom.dto.request;
 
 import lombok.Data;
@@ -22,3 +23,4 @@ public class ProductRequest {
 
     // Getters and Setters
 }
+*/

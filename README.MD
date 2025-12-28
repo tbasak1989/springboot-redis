@@ -56,6 +56,14 @@ This will pull the latest code from github and run the pipeline using the Jenkin
                     **Password**: Docker Hub access token (recommended) | **Generate Access Token** (Account Settings -> Personal access tokens -> Generate New Token)                           
                     **ID**: dockerhub-creds
 - Update Jenkins file to -> Login to Docker Hub and -> Push image to Docker Hub
-- 
+------------------------------------------------------------------------------------
+Started using Kubernetes locally
+
+kubectl apply -f k8s/
+kubectl get svc
+--TroubleShoot--
+kubectl get pods
+kubectl describe pod <pod-name>
+
 
 

@@ -1,3 +1,4 @@
+/*
 package com.tancom.controller;
 
 
@@ -54,3 +55,4 @@ public class ProductController {
         return ResponseEntity.noContent().build();
     }
 }
+*/

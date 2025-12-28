@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-redis
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: springboot-redis
+  template:
+    metadata:
+      labels:
+        app: springboot-redis
+    spec:
+      containers:
+        - name: app
+          image: tanmoyb89/microservices_101:1.0.22
+          ports:
+            - containerPort: 8090
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: k8s

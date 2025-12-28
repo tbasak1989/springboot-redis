@@ -3,23 +3,4 @@ server:
 spring:
   application:
     name: springboot-redis
-  datasource:
-    url: jdbc:postgresql://postgres:5432/postgres       # replace with your DB name
-    username: postgres                                # replace with your DB username
-    password: password                                # replace with your DB password
-    driver-class-name: org.postgresql.Driver
-
-  jpa:
-    hibernate:
-      ddl-auto: update                                # use "none", "validate", "update", or "create-drop"
-    show-sql: true                                     # logs SQL queries
-    properties:
-      hibernate:
-        format_sql: true                               # prettify SQL output
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-
-  data:
-    redis:
-      host: redis
-      port: 6379
 

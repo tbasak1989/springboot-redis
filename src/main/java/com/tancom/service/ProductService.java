@@ -1,3 +1,4 @@
+/*
 package com.tancom.service;
 
 import com.tancom.dto.request.ProductRequest;
@@ -16,4 +17,4 @@ public interface ProductService {
     ProductResponse updateProduct(Long id, ProductRequest request);
 
     void deleteProduct(Long id);
-}
+}*/

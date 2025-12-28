@@ -1,3 +1,4 @@
+/*
 package com.tancom.exception;
 
 import org.springframework.http.HttpStatus;
@@ -19,3 +20,4 @@ public class ResourceNotFoundException extends RuntimeException {
     }
 }
 
+*/

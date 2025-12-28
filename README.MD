@@ -64,6 +64,7 @@ kubectl get svc
 --TroubleShoot--
 kubectl get pods
 kubectl describe pod <pod-name>
+kubectl logs <pod-name>
 
 
 

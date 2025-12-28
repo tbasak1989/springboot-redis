@@ -44,5 +44,18 @@ Update the code to add the 'Jenkins' file that the pipeline will refer to run th
 This will pull the latest code from github and run the pipeline using the Jenkins file
 
 ------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+- Create DockerHub account-instead of AKS for POC
+- Create a repository(microservices_101)
+- Login to DockerHub from PowerShell(docker login/docker login -u tanmoyb89)
+- you can push image 1. from your local after building ir or 2. through jenkins by creating a stage in jenkins file
+- for 2, Create dockerHub credentials in Jenkins
+  - Manage Jenkins -> Credentials -> Global
+  - Add credentials:**Kind**: **Username with password**
+                    **Username**: **tanmoyb89**
+                    **Password**: Docker Hub access token (recommended) | **Generate Access Token** (Account Settings -> Personal access tokens -> Generate New Token)                           
+                    **ID**: dockerhub-creds
+- Update Jenkins file to -> Login to Docker Hub and -> Push image to Docker Hub
+- 
 
 

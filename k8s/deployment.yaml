@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
         - name: app
-          image: tanmoyb89/microservices_101:1.0.27
+          image: tanmoyb89/springboot_containerization_101:1.0.29
+          imagePullPolicy: Always
           ports:
             - containerPort: 8090
           env:

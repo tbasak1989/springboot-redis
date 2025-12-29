@@ -13,6 +13,13 @@ pipeline {
             deleteDir() // wipes entire workspace to avoid caching old files
         }
     }
+
+    stage('Checkout Code') {
+        steps {
+            checkout scm
+        }
+    }
+
     stage('Build JAR') {
       agent {
         docker {
@@ -21,7 +28,10 @@ pipeline {
         }
       }
       steps {
-        sh 'rm -rf target/* && mvn clean package -DskipTests -B -U'
+        sh 'rm -rf target/*' // remove old JARs including .original
+        sh 'mvn clean package -DskipTests -B -U'
+        // Optional: verify timestamp
+        sh 'ls -lh target/*.jar'
       }
     }
 

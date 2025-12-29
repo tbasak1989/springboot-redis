@@ -66,5 +66,18 @@ kubectl get pods
 kubectl describe pod <pod-name>
 kubectl logs <pod-name>
 
+-----------------Troubleshoot part 2--------------------
+- Pull the image from Docker Hub
+docker pull tanmoyb89/microservices_101:1.0.32
+- Check that it’s there:
+  docker images
+- Extract the JAR from the Docker image.
+  docker create --name temp-container tanmoyb89/microservices_101:1.0.32
+  docker cp temp-container:/app/app.jar .
+  docker rm temp-container
+  ls -lh /app/
+  jar tf app.jar
+
+
 
 

@@ -16,14 +16,14 @@ pipeline {
         }
       }
       steps {
-        sh 'mvn clean package -DskipTests'
+        sh 'rm -rf target/* && mvn clean package -DskipTests -B -U'
       }
     }
 
     stage('Build Docker Image') {
       steps {
         sh """
-          docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .
+          docker build --no-cache -t ${IMAGE_NAME}:${IMAGE_TAG} .
         """
       }
     }

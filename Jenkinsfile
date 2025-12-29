@@ -28,10 +28,7 @@ pipeline {
         }
       }
       steps {
-        sh 'rm -rf target/*' // remove old JARs including .original
-        sh 'mvn clean package -DskipTests -B -U'
-        // Optional: verify timestamp
-        sh 'ls -lh target/*.jar'
+        sh 'rm -rf target/* && mvn clean package -DskipTests -B -U'
       }
     }
 

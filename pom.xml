@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.tancom</groupId>
 	<artifactId>springboot-redis</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<name>springboot-redis</name>
 	<description>SpringBoot Redis cache POC</description>
 	<url/>

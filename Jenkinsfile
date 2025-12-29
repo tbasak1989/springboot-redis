@@ -1,5 +1,8 @@
 pipeline {
   agent any
+  tools {
+    maven 'maven-3.9.9'
+  }
 
   environment {
     IMAGE_NAME = 'tanmoyb89/microservices_101'
@@ -22,6 +25,7 @@ pipeline {
 
     stage('Build JAR') {
       steps {
+        sh 'mvn -version'
         sh 'rm -rf target/* && mvn clean package -DskipTests'
       }
     }
